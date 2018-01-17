@@ -7,11 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FFManager.h"
+#import "CTView.h"
+#import "StoryView.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UIGestureRecognizerDelegate> {
+    //
+}
 
+@property (assign, readwrite) NSUInteger chapter;
+@property (assign, readwrite) NSUInteger initialPage;
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) FFManager* manager;
+@property (weak, nonatomic) IBOutlet CTView *textView;
+@property (weak, nonatomic) IBOutlet StoryView *storyView;
+@property (strong, nonatomic) IBOutlet ProgressView *progressView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextChapterButton;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navbar;
+
+- (void)dispatchConfigure;
 
 @end
 
